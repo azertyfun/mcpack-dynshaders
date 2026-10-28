@@ -1,0 +1,3 @@
+iterator = "uniforms"
+impl = "item.mcfunction"
+out_tpl = "{{ item }}.mcfunction"

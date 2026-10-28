@@ -1,0 +1,70 @@
+[uniforms]
+
+posterization = "iris-uniforms-0"
+brightness = { name = "iris-uniforms-1", default = 100 }
+contrast = { name = "iris-uniforms-2", default = 100 }
+saturation = { name = "iris-uniforms-3", default = 70 }
+wb = "iris-uniforms-4"
+eclipse = { name = "iris-uniforms-5", default = 100 }
+fullnight = "iris-uniforms-6"
+vignette = "iris-uniforms-7"
+tentacles = "iris-uniforms-8"
+
+phantom_light_x   = "iris-uniforms-16"
+phantom_light_y   = "iris-uniforms-17"
+phantom_light_z   = "iris-uniforms-18"
+phantom_light_str = "iris-uniforms-19"
+
+[[locations]]
+
+resolution = 100
+effects = [{ name = "fullnight" }, { name = "posterization", strength = 0.7 }]
+coords = [3902, 95, 409]
+min_radius = 20
+radius = 80
+
+[[locations]]
+
+resolution = 7
+effects = [{name = "vignette", strength = 0.1}, { name = "posterization", strength = 1.0 }, { name = "brightness", to = 50.0 }, {name = "contrast", to = 150.0}]
+coords = [3828, 75, 548]
+radius = 10
+
+
+
+[[light_triggers]]
+
+radius = 12
+trigger_coords = [3902, 95, 409]
+light_coords = [3911, 96, 400]
+strength = 0.2
+
+[[light_triggers]]
+
+radius = 3
+trigger_coords = [3911, 96, 400]
+light_coords = [3928, 103, 393]
+strength = 0.2
+
+[[light_triggers]]
+
+radius = 3
+trigger_coords = [3928, 103, 393]
+light_coords = [3956, 96, 397]
+strength = 0.2
+
+[[light_triggers]]
+
+radius = 3
+trigger_coords = [3956, 96, 397]
+light_coords = [3956, 96, 397]
+strength = 0.0
+
+[[bosses]]
+
+id = "demo-zombie"
+trigger_coords = [3828, 75, 548]
+trigger_radius = 1
+summon_coords = [3828, 75, 543]
+summon_type = "zombie"
+summon_data = "{CanPickUpLoot:1b,active_effects:[{id:resistance,duration:600,amplifier:2},{id:strength,duration:600,amplifier:2}],equipment:{mainhand:{id:copper_sword},head:{id:netherite_helmet}},drop_chances:{head:0f}}"

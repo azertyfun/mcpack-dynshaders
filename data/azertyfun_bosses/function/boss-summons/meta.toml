@@ -1,0 +1,3 @@
+iterator = "bosses"
+impl = "boss.mcfunction"
+out_tpl = "{{ item.id }}.mcfunction"
