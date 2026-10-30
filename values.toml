@@ -15,13 +15,28 @@ phantom_light_y   = "iris-uniforms-17"
 phantom_light_z   = "iris-uniforms-18"
 phantom_light_str = "iris-uniforms-19"
 
+jitter_x   = "iris-uniforms-20"
+jitter_z   = "iris-uniforms-21"
+jitter_dx  = "iris-uniforms-22"
+jitter_dz  = "iris-uniforms-23"
+jitter_str = "iris-uniforms-24"
+
+[[jitter]]
+coords = [3902, 95, 409]
+radius = 500
+strength = 0.2
+x = 3902
+z = 405
+dx = 3
+dz = 8
+
 [[locations]]
 
 resolution = 100
 effects = [{ name = "fullnight" }, { name = "posterization", strength = 0.7 }]
 coords = [3902, 95, 409]
 min_radius = 20
-radius = 80
+radius = 50
 
 [[locations]]
 

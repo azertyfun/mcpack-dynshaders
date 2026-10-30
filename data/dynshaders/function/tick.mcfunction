@@ -36,6 +36,13 @@ execute as @a run execute if score @s enable-effects matches 1.. run scoreboard 
     {% endfor %}
 {% endfor %}
 
+# Jitter
+# ======
+
+{% for j in v.jitter %}
+    execute positioned {{ j.coords | join(' ') }} as @a[distance=..{{ j.radius }}] \
+        run function dynshaders:jitter {x: {{ j.x }}, z: {{ j.z }}, dx: {{ j.dx }}, dz: {{ j.dz }}, str: {{ round(j.strength * 100) }}}
+{% endfor %}
 
 # Light triggers
 # ==============
@@ -50,3 +57,18 @@ execute as @a run execute if score @s enable-effects matches 1.. run scoreboard 
     execute positioned {{ t.trigger_coords | required | join(' ') }} run execute as @a[distance=..{{ t.radius | default(1) }}] run \
         scoreboard players set @s {{ v.uniforms.phantom_light_str }} {{ round(t.strength | default(1.2) * 100) }}
 {% endfor %}
+
+
+# Demo jitter trigger
+# ===================
+
+execute positioned 3984 93 404 as @a[distance=..30] \
+    if block 3986 94 400 minecraft:fire if block 3986 94 409 minecraft:fire \
+    run function dynshaders:jitter {x: 3986, z: 401, dx: 5, dz: 8, str: 70}
+
+execute positioned 3984 93 404 as @a[distance=..30] \
+    unless block 3986 94 400 minecraft:fire \
+    run function dynshaders:jitter {x: 3986, z: 401, dx: 5, dz: 8, str: 10}
+execute positioned 3984 93 404 as @a[distance=..30] \
+    unless block 3986 94 409 minecraft:fire \
+    run function dynshaders:jitter {x: 3986, z: 401, dx: 5, dz: 8, str: 10}
